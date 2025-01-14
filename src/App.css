@@ -63,3 +63,21 @@
     color: #333;
     font-weight: 700;
   }
+
+  .custom-select {
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 12px;
+    font-size: 1rem;
+    color: #ffffff;
+    padding: 0.375rem 1.75rem 0.375rem 0.75rem; 
+    font-size: 1rem; 
+    line-height: 1.5; 
+    height: 3rem;
+    background-color: transparent;
+    color: #ffffff;
+  }
+
+  .custom-select option {
+    background-color: #002D62;
+    color: white;
+  }

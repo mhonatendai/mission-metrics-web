@@ -47,12 +47,20 @@ const RegisterUser = () => {
                             <input type="text" placeholder="Full name" required />
                         </div>
                         <div className="input-box">
+                            <input type="password" placeholder="Password" required />
+                        </div>
+                        <div className="input-box">
                             <select
                                 id="gender"
                                 className="form-control custom-select"
                                 value={gender}
                                 onChange={(e) => setGender(e.target.value)}
                                 required
+                                style={{
+                                    backgroundColor: '#002D62',
+                                    color: 'white',
+                                    borderRadius: 12
+                                }}
                             >
                                 <option value="">Select Gender</option>
                                 {genders.map((option) => (
@@ -63,12 +71,9 @@ const RegisterUser = () => {
                             </select>
                         </div>
                         <div className="input-box">
-                            <input type="password" placeholder="Password" required />
-                        </div>
-                        <div className="input-box">
                             <button type="button" class="btn btn-primary">Register</button>
                         </div>
-                        <p>Now new? <Link to="/login">Login here</Link></p>
+                        <p>Not new? <Link to="/login">Login here</Link></p>
                     </form>
                 </div>
                 )}
