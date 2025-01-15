@@ -29,7 +29,7 @@ const RegisterUser = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const registerDTO = { fullName, emailAddress, phoneNumber, password };
+        const registerDTO = { fullName, emailAddress, password, gender };
         try {
             const responseData = await axios.post('http://localhost:8098/mission-metrics/user/register', registerDTO);
             setSuccessMessage('Registration successful! Welcome!');
@@ -80,10 +80,20 @@ const RegisterUser = () => {
                             />
                         </div>
                         <div className="input-box">
+                            <input
+                                type="password"
+                                className="form-control"
+                                placeholder="Repeat password"
+                                value={repeatedPassword}
+                                onChange={(e) => setRepeatedPassword(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className="input-box">
                             <select
                                 id="gender"
                                 className="form-control custom-select"
-                                value={gender}
+                                value={gender.toUpperCase}
                                 onChange={(e) => setGender(e.target.value)}
                                 required
                                 style={{
