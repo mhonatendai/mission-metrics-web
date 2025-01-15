@@ -31,7 +31,7 @@ const RegisterUser = () => {
         event.preventDefault();
         const registerDTO = { fullName, emailAddress, phoneNumber, password };
         try {
-            const responseData = await axios.post('http://localhost:8098/nexus-core/api/user/register', registerDTO);
+            const responseData = await axios.post('http://localhost:8098/mission-metrics/user/register', registerDTO);
             setSuccessMessage('Registration successful! Welcome!');
             setIsRegistered(true);
             setResponse(responseData);
