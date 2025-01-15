@@ -6,6 +6,7 @@ import axios from 'axios';
 
 const RegisterUser = () => {
     const [password, setPassword] = useState('');
+    const [repeatedPassword, setRepeatedPassword] = useState('');
     const [response, setResponse] = useState(null);
     const [isRegistered, setIsRegistered] = useState(false);
     const [gender, setGender] = useState('');
@@ -16,6 +17,17 @@ const RegisterUser = () => {
     const [emailAddress, setEmailAddress] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
     const [error, setError] = useState('');
+
+    const handleClear = () => {
+        setFirstName('');
+        setLastName('');
+        setEmailAddress('');
+        setIsRegistered(false);
+        setPassword('');
+        setRepeatedPassword('');
+        setPhoneNumber('');
+        setGender('');
+    };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -70,8 +82,13 @@ const RegisterUser = () => {
                                 ))}
                             </select>
                         </div>
-                        <div className="input-box">
-                            <button type="button" class="btn btn-primary">Register</button>
+                        <div className="side-by-side-container">
+                            <button type="submit" className="btn btn-primary">
+                                Register
+                            </button>
+                            <button type="button" className="btn btn-secondary" onClick={handleClear}>
+                                Clear
+                            </button>
                         </div>
                         <p>Not new? <Link to="/login">Login here</Link></p>
                     </form>

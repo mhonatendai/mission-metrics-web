@@ -81,3 +81,9 @@
     background-color: #002D62;
     color: white;
   }
+
+  .side-by-side-container {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
