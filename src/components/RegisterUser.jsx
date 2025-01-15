@@ -29,7 +29,8 @@ const RegisterUser = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const registerDTO = { fullName, emailAddress, password, gender };
+        const upperGender = gender.toUpperCase();
+        const registerDTO = { fullName, emailAddress, password, upperGender };
         try {
             const responseData = await axios.post('http://localhost:8098/mission-metrics/user/register', registerDTO);
             setSuccessMessage('Registration successful! Welcome!');
@@ -93,7 +94,7 @@ const RegisterUser = () => {
                             <select
                                 id="gender"
                                 className="form-control custom-select"
-                                value={gender.toUpperCase}
+                                value={gender}
                                 onChange={(e) => setGender(e.target.value)}
                                 required
                                 style={{
