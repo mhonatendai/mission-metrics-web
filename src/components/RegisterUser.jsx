@@ -29,10 +29,13 @@ const RegisterUser = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const upperGender = gender.toUpperCase();
-        const registerDTO = { fullName, emailAddress, password, upperGender };
+        const registerDTO = { fullName, emailAddress, password, gender };
+        const uppercaseGender = gender.toUpperCase();
+        const modifiedRegisterDTO = { ...registerDTO, gender: uppercaseGender };
+        console.log("DTO: ", registerDTO);
+        console.log("Modified DTO: ", modifiedRegisterDTO);
         try {
-            const responseData = await axios.post('http://localhost:8098/mission-metrics/user/register', registerDTO);
+            const responseData = await axios.post('http://localhost:8098/mission-metrics/user/register', modifiedRegisterDTO);
             setSuccessMessage('Registration successful! Welcome!');
             setIsRegistered(true);
             setResponse(responseData);
