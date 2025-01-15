@@ -49,10 +49,10 @@ const RegisterUser = () => {
             ) :
                 (<div>
                     <h3 className='title'>Mission Metrics</h3>
-                    <form action="#">
+                    <form onSubmit={handleSubmit}>
                         <div className="input-box">
                             <input
-                                type="text"
+                                type="email"
                                 className="form-control"
                                 placeholder="Email address"
                                 value={emailAddress}
