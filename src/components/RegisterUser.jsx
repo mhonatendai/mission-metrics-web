@@ -12,7 +12,6 @@ const RegisterUser = () => {
     const [gender, setGender] = useState('');
     const genders = ['Male', 'Female'];
     const [fullName, setFullName] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
     const [emailAddress, setEmailAddress] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
     const [error, setError] = useState('');
@@ -23,8 +22,8 @@ const RegisterUser = () => {
         setIsRegistered(false);
         setPassword('');
         setRepeatedPassword('');
-        setPhoneNumber('');
         setGender('');
+        setError('');
     };
 
     const handleSubmit = async (event) => {
@@ -32,22 +31,19 @@ const RegisterUser = () => {
         const registerDTO = { fullName, emailAddress, password, gender };
         const uppercaseGender = gender.toUpperCase();
         const modifiedRegisterDTO = { ...registerDTO, gender: uppercaseGender };
-        console.log("DTO: ", registerDTO);
-        console.log("Modified DTO: ", modifiedRegisterDTO);
         try {
             const responseData = await axios.post('http://localhost:8098/mission-metrics/user/register', modifiedRegisterDTO);
             setSuccessMessage('Registration successful! Welcome!');
             setIsRegistered(true);
             setResponse(responseData);
         } catch (err) {
-            setError('Registration failed. Please try again.');
-            console.error(err);
+            setError('Registration failed. Please try again later.');
         }
     };
 
     return (
         <div className='outer-wrapper'>
-            {error && <p>{error}</p>}
+            {error && <p className='error-message'>{error}</p>}
             <div className='wrapper'>
                 {isRegistered ? (
                     <RegistrationSuccess message={successMessage} response={response} />
