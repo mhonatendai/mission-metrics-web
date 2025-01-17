@@ -14,9 +14,14 @@ const LoginForm = () => {
         try {
             const responseData = await axios.post('http://localhost:8098/mission-metrics/user/login', loginDTO);
         } catch (err) {
-            setError('Registration failed. Please try again later.');
-            console.error(err);
+            setError('Login failed. Please try again later.');
         }
+    };
+
+    const handleClear = () => {
+        setEmailAddress('');
+        setPassword('');
+        setError('');
     };
 
     return (
@@ -25,7 +30,7 @@ const LoginForm = () => {
             <div className='wrapper'>
                 <div>
                     <h3 className='title'>Mission Metrics</h3>
-                    <form action="#">
+                    <form onSubmit={handleSubmit}>
                         <div className="input-box">
                             <input
                                 type="email"
@@ -46,9 +51,14 @@ const LoginForm = () => {
                                 required
                             />
                         </div>
-                        <div className="input-box">
-                            <button type="button" class="btn btn-primary">Login</button>
-                        </div>
+                        <div className="side-by-side-container">
+                                <button type="submit" className="btn btn-primary">
+                                    Login
+                                </button>
+                                <button type="button" className="btn btn-secondary" onClick={handleClear}>
+                                    Clear
+                                </button>
+                            </div>
                         <p>New? <Link to="/register">Register here</Link></p>
                     </form>
                 </div>
