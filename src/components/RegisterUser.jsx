@@ -46,87 +46,90 @@ const RegisterUser = () => {
     };
 
     return (
-        <div className='wrapper'>
+        <div className='outer-wrapper'>
             {error && <p>{error}</p>}
-            {isRegistered ? (
-                <RegistrationSuccess message={successMessage} response={response} />
-            ) :
-                (<div>
-                    <h3 className='title'>Mission Metrics</h3>
-                    <form onSubmit={handleSubmit}>
-                        <div className="input-box">
-                            <input
-                                type="email"
-                                className="form-control"
-                                placeholder="Email address"
-                                value={emailAddress}
-                                onChange={(e) => setEmailAddress(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <div className="input-box">
-                            <input
-                                type="text"
-                                className="form-control"
-                                placeholder="Full name"
-                                value={fullName}
-                                onChange={(e) => setFullName(e.target.value)}
-                            />
-                        </div>
-                        <div className="input-box">
-                            <input
-                                type="password"
-                                className="form-control"
-                                placeholder="Enter password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <div className="input-box">
-                            <input
-                                type="password"
-                                className="form-control"
-                                placeholder="Repeat password"
-                                value={repeatedPassword}
-                                onChange={(e) => setRepeatedPassword(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <div className="input-box">
-                            <select
-                                id="gender"
-                                className="form-control custom-select"
-                                value={gender}
-                                onChange={(e) => setGender(e.target.value)}
-                                required
-                                style={{
-                                    backgroundColor: '#002D62',
-                                    color: 'white',
-                                    borderRadius: 12
-                                }}
-                            >
-                                <option value="">Select Gender</option>
-                                {genders.map((option) => (
-                                    <option key={option} value={option}>
-                                        {option}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
-                        <div className="side-by-side-container">
-                            <button type="submit" className="btn btn-primary">
-                                Register
-                            </button>
-                            <button type="button" className="btn btn-secondary" onClick={handleClear}>
-                                Clear
-                            </button>
-                        </div>
-                        <p>Not new? <Link to="/login">Login here</Link></p>
-                    </form>
-                </div>
-                )}
+            <div className='wrapper'>
+                {isRegistered ? (
+                    <RegistrationSuccess message={successMessage} response={response} />
+                ) :
+                    (<div>
+                        <h3 className='title'>Mission Metrics</h3>
+                        <form onSubmit={handleSubmit}>
+                            <div className="input-box">
+                                <input
+                                    type="email"
+                                    className="form-control"
+                                    placeholder="Email address"
+                                    value={emailAddress}
+                                    onChange={(e) => setEmailAddress(e.target.value)}
+                                    required
+                                />
+                            </div>
+                            <div className="input-box">
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="Full name"
+                                    value={fullName}
+                                    onChange={(e) => setFullName(e.target.value)}
+                                />
+                            </div>
+                            <div className="input-box">
+                                <input
+                                    type="password"
+                                    className="form-control"
+                                    placeholder="Enter password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    required
+                                />
+                            </div>
+                            <div className="input-box">
+                                <input
+                                    type="password"
+                                    className="form-control"
+                                    placeholder="Repeat password"
+                                    value={repeatedPassword}
+                                    onChange={(e) => setRepeatedPassword(e.target.value)}
+                                    required
+                                />
+                            </div>
+                            <div className="input-box">
+                                <select
+                                    id="gender"
+                                    className="form-control custom-select"
+                                    value={gender}
+                                    onChange={(e) => setGender(e.target.value)}
+                                    required
+                                    style={{
+                                        backgroundColor: '#002D62',
+                                        color: 'white',
+                                        borderRadius: 12
+                                    }}
+                                >
+                                    <option value="">Select Gender</option>
+                                    {genders.map((option) => (
+                                        <option key={option} value={option}>
+                                            {option}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                            <div className="side-by-side-container">
+                                <button type="submit" className="btn btn-primary">
+                                    Register
+                                </button>
+                                <button type="button" className="btn btn-secondary" onClick={handleClear}>
+                                    Clear
+                                </button>
+                            </div>
+                            <p>Not new? <Link to="/login">Login here</Link></p>
+                        </form>
+                    </div>
+                    )}
+            </div>
         </div>
+
     );
 
 }

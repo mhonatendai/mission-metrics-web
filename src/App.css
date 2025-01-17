@@ -5,8 +5,12 @@
     height: 100vh;
 }
 
+.outer-wrapper{
+  width: 40%;
+}
+
 .wrapper{
-    width: 40%;
+    width: 100%;
     background: #002D62;
     border: 2px solid rgba(255, 255, 255, .2);
     box-shadow: 0 0 10px rgba(0, 0, 0 .2);
