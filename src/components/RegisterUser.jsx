@@ -26,6 +26,13 @@ const RegisterUser = () => {
         setError('');
     };
 
+    const handleRepeatedPasswordChange = (e) => {
+        const repeatedPasswordValue = e.target.value;
+        setRepeatedPassword(repeatedPasswordValue);
+        setPasswordsMatch(repeatedPasswordValue === password);
+    };
+
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         const registerDTO = { fullName, emailAddress, password, gender };
@@ -86,10 +93,12 @@ const RegisterUser = () => {
                                     className="form-control"
                                     placeholder="Repeat password"
                                     value={repeatedPassword}
-                                    onChange={(e) => setRepeatedPassword(e.target.value)}
+                                    onChange={handleRepeatedPasswordChange}
                                     required
                                 />
                             </div>
+                            <br />
+                            {passwordsMatch ? <p>Passwords match!</p> : <p>Passwords do not match</p>}
                             <div className="input-box">
                                 <select
                                     id="gender"
