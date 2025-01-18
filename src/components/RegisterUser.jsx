@@ -15,7 +15,7 @@ const RegisterUser = () => {
     const [emailAddress, setEmailAddress] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
     const [error, setError] = useState('');
-    const [passwordsMatch, setPasswordsMatch] = useState(false);
+    const [passwordsMatch, setPasswordsMatch] = useState(true);
 
     const handleClear = () => {
         setFullName('');
@@ -30,7 +30,7 @@ const RegisterUser = () => {
     const handleRepeatedPasswordChange = (e) => {
         const repeatedPasswordValue = e.target.value;
         setRepeatedPassword(repeatedPasswordValue);
-        setPasswordsMatch(repeatedPasswordValue === password);
+        setPasswordsMatch(repeatedPasswordValue === password || repeatedPasswordValue === '')
     };
 
 
@@ -99,7 +99,7 @@ const RegisterUser = () => {
                                 />
                             </div>
                             <br />
-                            {passwordsMatch ? <p>Passwords match!</p> : <p>Passwords do not match</p>}
+                            {!passwordsMatch && repeatedPassword !== '' && <p style={{ color: 'red' }}>Passwords do not match</p>}
                             <div className="input-box">
                                 <select
                                     id="gender"
