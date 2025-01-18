@@ -15,6 +15,7 @@ const RegisterUser = () => {
     const [emailAddress, setEmailAddress] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
     const [error, setError] = useState('');
+    const [passwordsMatch, setPasswordsMatch] = useState(false);
 
     const handleClear = () => {
         setFullName('');
