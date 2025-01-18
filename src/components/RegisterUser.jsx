@@ -122,7 +122,7 @@ const RegisterUser = () => {
                                 </select>
                             </div>
                             <div className="side-by-side-container">
-                                <button type="submit" className="btn btn-primary">
+                                <button type="submit" className="btn btn-primary" disabled={!passwordsMatch}>
                                     Register
                                 </button>
                                 <button type="button" className="btn btn-secondary" onClick={handleClear}>
