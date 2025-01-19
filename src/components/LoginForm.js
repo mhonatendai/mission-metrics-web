@@ -12,7 +12,7 @@ const LoginForm = () => {
         event.preventDefault();
         const loginDTO = { emailAddress, password };
         try {
-            const responseData = await axios.post('http://localhost:8098/mission-metrics/user/login', loginDTO);
+            const responseData = await axios.post('http://localhost:8098/mission-metrics/user/auth/login', loginDTO);
         } catch (err) {
             setError('Login failed. Please try again later.');
         }

@@ -40,7 +40,7 @@ const RegisterUser = () => {
         const uppercaseGender = gender.toUpperCase();
         const modifiedRegisterDTO = { ...registerDTO, gender: uppercaseGender };
         try {
-            const responseData = await axios.post('http://localhost:8098/mission-metrics/user/register', modifiedRegisterDTO);
+            const responseData = await axios.post('http://localhost:8098/mission-metrics/user/auth/register', modifiedRegisterDTO);
             setSuccessMessage('Registration successful! Welcome!');
             setIsRegistered(true);
             setResponse(responseData);
