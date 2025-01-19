@@ -17,7 +17,7 @@ const LoginForm = () => {
             if (responseData.status === 200 && responseData.data.success) {
                 navigate('/dashboard');
               } else {
-                console.log('Login failed. Please try again later.');
+                setError('Login failed. Please try again later.');
               }
             navigate('/dashboard');
         } catch (err) {
