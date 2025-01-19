@@ -1,18 +1,25 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
     const [error, setError] = useState('');
     const [emailAddress, setEmailAddress] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         const loginDTO = { emailAddress, password };
         try {
             const responseData = await axios.post('http://localhost:8098/mission-metrics/user/auth/login', loginDTO);
+            if (responseData.status === 200 && responseData.data.success) {
+                navigate('/dashboard');
+              } else {
+                console.log('Login failed. Please try again later.');
+              }
+            navigate('/dashboard');
         } catch (err) {
             setError('Login failed. Please try again later.');
         }
