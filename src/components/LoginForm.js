@@ -15,11 +15,11 @@ const LoginForm = () => {
         try {
             const responseData = await axios.post('http://localhost:8098/mission-metrics/user/auth/login', loginDTO);
             if (responseData.status === 200 && responseData.data.success) {
+                console.log("Login successful");
                 navigate('/dashboard');
               } else {
                 setError('Login failed. Please try again later.');
               }
-            navigate('/dashboard');
         } catch (err) {
             setError('Login failed. Please try again later.');
         }
