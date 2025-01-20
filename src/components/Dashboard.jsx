@@ -1,11 +1,53 @@
 import React from 'react';
+import { Container, Row, Col, Card } from 'react-bootstrap';
+
 
 const Dashboard = () => {
 
     return (
-        <div>
-            <h3>Welcome to a work in progress dashboard</h3>
-        </div>
+        <Container>
+        <Row>
+          <Col md={4}>
+            <Card>
+              <Card.Body>
+                <Card.Title>Recent Orders</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">Last 7 days</Card.Subtitle>
+                <Card.Text>1,534</Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col md={4}>
+            <Card>
+              <Card.Body>
+                <Card.Title>Total Revenue</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">This month</Card.Subtitle>
+                <Card.Text>$3,456</Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col md={4}>
+            <Card>
+              <Card.Body>
+                <Card.Title>New Users</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">This month</Card.Subtitle>
+                <Card.Text>2,145</Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            {/* Placeholder for a chart */}
+            <Card>
+              <Card.Body>
+                <Card.Title>Sales Overview</Card.Title>
+                {/* You would replace this with a chart library */}
+                <div style={{ height: '400px', backgroundColor: '#f0f0f0' }} /> 
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
     )
 
 }
