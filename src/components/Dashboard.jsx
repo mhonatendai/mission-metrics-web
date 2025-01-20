@@ -35,18 +35,6 @@ const Dashboard = () => {
             </Card>
           </Col>
         </Row>
-        <Row>
-          <Col>
-            {/* Placeholder for a chart */}
-            <Card>
-              <Card.Body>
-                <Card.Title>Sales Overview</Card.Title>
-                {/* You would replace this with a chart library */}
-                <div style={{ height: '400px', backgroundColor: '#f0f0f0' }} /> 
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
       </Container>
     )
 
